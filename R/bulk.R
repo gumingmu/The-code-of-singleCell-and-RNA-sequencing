@@ -27,7 +27,7 @@ exp.d <- read.table(matrix_file, sep = "\t", header = T, check.names = F)
 exp.df <- exp.d %>% 
   column_to_rownames("Geneid") %>% 
   dplyr::select(starts_with("./")) %>% 
-  rename_all(.funs = funs(paste0(rep(c("PTT+EXOSOME INHIBITOR", "PTT", "PBS"), each = 1), "_", rep(1:3, times = 4))))
+  rename_all(.funs = funs(paste0(rep(c("PTT+EXOSOME INHIBITOR", "PTT", "PBS"), each = 1), "_", rep(1:3, times = 3))))
 
 anno.df <- data.frame(sample = colnames(exp.df), group = my.strsplit(colnames(exp.df), split = "_", ori = 1), order = my.strsplit(colnames(exp.df), split = "_", ori = 2))
 
